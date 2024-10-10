@@ -79,6 +79,33 @@ if(chToss === 0){
 var randomNumber = Math.floor(Math.random() * 100) + 1;
 document.write("Random Number Between 1 and 100: " + randomNumber + "<br>")
 
+// Write a program that asks the user about his weight. Parse
+// the user input and display his weight in your browser.
+// Possible user inputs can be:
+// a. 50
+// b. 50kgs
+// c. 50.2kgs
+// d. 50.2kilograms
+
+
+function parseWeight() {
+    // Get user input
+    let input = document.getElementById("weightInput").value.trim().toLowerCase();
+
+    // Use regex to match the weight with optional units
+    let regex = /^(\d+(\.\d+)?)(kgs?|kilograms?)?$/;
+    let match = input.match(regex);
+
+    if (match) {
+        // Extract the numeric part of the weight
+        let weight = parseFloat(match[1]);
+        // Display the weight in kilograms
+        document.getElementById("output").innerHTML = "Your weight is: " + weight + " kgs";
+    } else {
+        // If the input is invalid, show an error message
+        document.getElementById("output").innerHTML = "Invalid weight input!";
+    }
+}
 
 // 8. Write a program that stores a random secret number from
 // 1 to 10 in a variable. Ask the user to input a number
